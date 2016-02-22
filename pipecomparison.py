@@ -25,7 +25,7 @@ def fibopipe(f):
     # call this files main function pipe input, it contains the program to use (python) and arguments for the program
     # file, and two fibonacci numbers and stdout=PIPE makes it so that the output of the pipe is gotten
     p = Popen(['python', '-u', os.path.dirname(os.path.abspath(__file__))+"/pipecomparison.py", str(f[0]), str(f[1])], bufsize=1, stdout=PIPE )
-    # read the output of the pipe, which is the print statement on line 52
+    # read the output of the pipe, which is the print statement on line 40 of this file
     output, stderr = p.communicate()
     # decode bytes in string format and parse
     output = output.decode("utf-8").split("[")[1].split("]")[0].split(",")
@@ -37,6 +37,8 @@ def fibopipe(f):
 if __name__ == "__main__":
     # when fiboremotefunction opens the pipe this piece of code is called, it takes the arguments send
     # to it and calculates the next fibonacci number
+    # sys.argv[1] = fibonacci number n-2
+    # sys.argv[2] = fibonacci number n-1
     print(str("["+str(int(sys.argv[2]))+","
               + str(int(sys.argv[1]) + int(sys.argv[2]))+"]").encode("utf-8"))
 
