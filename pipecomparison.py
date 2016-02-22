@@ -1,6 +1,6 @@
 '''
-Test out the performance difference between piping in and from python programs and
-just having the functionality in one program, the file used for piping is called fibofibo
+Test out the performance difference between piping in and from python programs contrasted
+with having the functionality within one python instance
 
 call from shell with: python -c "from pipecomparison import fiboin, fiboremote; fiboremote(42); fiboin(42)"
 '''
@@ -17,7 +17,7 @@ def fiboin(n):
 
 
 def fiboremote(n):
-    # solves fibonacci by asking through pipe input and output about the fibo compuation
+    # solves fibonacci by asking through pipe input and output about the fibo computation
     return fibofunction(fibopipe, n)
 
 
